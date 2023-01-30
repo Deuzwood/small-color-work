@@ -63,7 +63,7 @@ function fetchResults(file) {
         div.style.color = result.bestColor;
         div.style.textAlign = "center";
         div.innerHTML = `${result.color}<br>
-          ${result.contrast.toFixed(3)}<br>
+          ${result.contrast.toFixed(2)}<br>
           <br> ${result.compliance}`;
         container.appendChild(div);
       }
@@ -83,9 +83,9 @@ function fetchRapport(file) {
       contrastBarInit.style.background = `linear-gradient(to right, #004e98 ${(text.contrast.min - 1) * 100 / 21}%,#ff6700 ${(text.contrast.min - 1) * 100 / 21}%,#ff6700 ${text.contrast.max * 100 / 21}%,#004e98 ${text.contrast.max * 100 / 21
         }%)`;
       contrast.innerHTML = text.contrast.min + " - " + text.contrast.max;
-      compliance.innerHTML = text.compliance.AAA + " are AAA <br> " + text.compliance.AA + " are AA <br> " + text.compliance.None + " failed";
+      compliance.innerHTML = text.compliance.AAA + " are AAA ( " + (text.compliance.AAA / text.colors.tested * 100).toFixed(2) + "% )" + "<br>" + text.compliance.AA + " are AA ( " + (text.compliance.AA / text.colors.tested * 100).toFixed(2) + "% )" + "<br>" + text.compliance.None + " fail ( " + (text.compliance.None / text.colors.tested * 100).toFixed(2) + "% )";
       for (color in text.bestColors) {
-        bestColor.innerHTML += color + " : " + text.bestColors[color] + "<br>";
+        bestColor.innerHTML += color + " : " + text.bestColors[color] + "( " + (text.bestColors[color] / (text.colors.tested) * 100).toFixed(2) + "% ) <br>";
       }
     }
     )
