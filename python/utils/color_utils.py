@@ -1,5 +1,8 @@
 # Description: This file contains the color parser for the project
 
+import math
+
+
 colors_dic = {
     'white': (255, 255, 255),
     'black': (0, 0, 0),
@@ -40,3 +43,13 @@ def color2hex(color):
     if (isinstance(color, str)):
         color = colors_dic[color]
     return rgb2hex(color)
+
+
+def luminanceFromBit(_8bit):
+    sRGB = _8bit / 255
+    return sRGB / 12.92 if (sRGB <= 0.04045) else math.pow((sRGB + 0.055) / 1.055, 2.4)
+
+
+def relativeLuminance(R8bit, G8bit, B8bit):
+    return 0.2126 * luminanceFromBit(R8bit) + 0.7152 * \
+        luminanceFromBit(G8bit) + 0.0722 * luminanceFromBit(B8bit)

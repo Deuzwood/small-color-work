@@ -2,10 +2,9 @@
 
 This repository contains a python script to check the luminance of a color ( `luminance.py` ) and an interactive HTML page to check the WCAG compliance of a color ( `index.html` ).
 
-
 ## Context
 
-I was curious about the number of colors that are compliant with the WCAG 2.0 (Web Content Accessibility Guidelines) given a background color and a set a foreground color.
+I was curious about the number of colors that are compliant with the WCAG 2.2 (Web Content Accessibility Guidelines) given a background color and a set a foreground color.
 
 I did it in a few hours, so it's not perfect, there are probably some errors, but it gave me information that I was looking for.
 

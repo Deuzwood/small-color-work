@@ -3,24 +3,9 @@ import csv
 import json
 import math
 
-from utils.color_parser import color2hex, colors, colors_dic, rgb2hex
+from utils.color_utils import relativeLuminance, color2hex, colors, colors_dic, rgb2hex
 
 args = None
-
-
-def relativeLuminanceW3C(R8bit, G8bit, B8bit):
-    RsRGB = R8bit / 255
-    GsRGB = G8bit / 255
-    BsRGB = B8bit / 255
-    R = RsRGB / \
-        12.92 if (RsRGB <= 0.03928) else math.pow((RsRGB + 0.055) / 1.055, 2.4)
-    G = GsRGB / \
-        12.92 if (GsRGB <= 0.03928) else math.pow((GsRGB + 0.055) / 1.055, 2.4)
-    B = BsRGB / \
-        12.92 if (BsRGB <= 0.03928) else math.pow((BsRGB + 0.055) / 1.055, 2.4)
-    # For the sRGB colorspace, the relative luminance of a color is defined as:
-    L = 0.2126 * R + 0.7152 * G + 0.0722 * B
-    return L
 
 
 def checkWcagCompliance(contrast):
@@ -38,8 +23,8 @@ def calculateContrast(color1, color2):
     if (isinstance(color2, str)):
         color2 = colors_dic[color2]
 
-    luminance1 = relativeLuminanceW3C(*color1)
-    luminance2 = relativeLuminanceW3C(*color2)
+    luminance1 = relativeLuminance(*color1)
+    luminance2 = relativeLuminance(*color2)
     contrast = (max(luminance1, luminance2) + 0.05) / \
         (min(luminance1, luminance2) + 0.05)
 
