@@ -1,0 +1,19 @@
+{
+    "contrast": {
+        "min": 2.96,
+        "max": 19.56
+    },
+    "compliance": {
+        "AAA": 120,
+        "AA": 192,
+        "None": 200
+    },
+    "bestColors": {
+        "#ffff00": 325,
+        "#800080": 187
+    },
+    "colors": {
+        "tested": 512,
+        "total": 16777216
+    }
+}

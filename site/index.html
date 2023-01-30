@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Small Color Work">
+  <meta name="keywords" content="color, contrast, compliance, best color">
+  <title>Small Color Work</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header>
+    <h1>Small Color Work</h1>
+  </header>
+
+  <main>
+    <div>
+      <p>
+        Please refer to the <a href="https://github.com/Deuzwood/small-color-work" target="_blank"
+          rel="noopener noreferrer" title="Github repository - small color work - new page">Github
+          repository</a> for more information. You will find the python script and more information
+        about
+        the context of this work.
+      </p>
+    </div>
+
+    <div class="col-2">
+      <form>
+        <h2>Parameters</h2>
+        <fieldset>
+          <div>
+            <legend>Color Parameters</legend>
+            <label for="colorType">Foreground Color</label>
+            <select id="colorType">
+              <option value="base" selected>Black & White</option>
+              <option value="primary">Primary</option>
+              <option value="secondary">Secondary</option>
+              <option value="tertiary">Tertiary</option>
+              <option value="all">Primary, Secondary & Tertiary</option>
+            </select>
+
+            <span data-color-type>
+              <!-- Preview of the color type -->
+            </span>
+
+            <div>
+              <label for="colorStep">Background Color</label>
+              <select id="colorStep">
+                <option value="64" selected>64 (4)</option>
+                <option value="32">32 (1024)</option>
+                <option value="16">16 (4096)</option>
+                <option value="8">8 (32768) ⚠ May be slow</option>
+                <option value="4">4 (262144) ⚠ May be very slow</option>
+              </select> <span>X colors for a step of (Y)</span>
+
+              <p>
+                <small>
+                  <strong>Warning:</strong> The smaller the step, the longer it takes to load.
+                </small>
+              </p>
+            </div>
+
+        </fieldset>
+      </form>
+
+      <div id="rapport">
+        <h2>Some Information</h2>
+        <h3>Contrast</h3>
+        <!--  Show two progress bar from 1:21 -->
+        <div style="display: flex; justify-content: space-between; gap:10px; align-items: center;">
+          <span>1</span>
+          <div id="contrastBarInit" style="
+            height: 10px;
+            display: flex; flex: auto;
+            "></div>
+          <span>21</span>
+        </div>
+        <p id="contrast" class="text-center">
+          <!--  Show the contrast -->
+        </p>
+
+        <div class="col-2">
+          <div>
+            <h3>Compliance</h3>
+            <p id="compliance">
+              <!--  Show the compliance -->
+            </p>
+          </div>
+          <div>
+            <h3>Occurence</h3>
+            <p id="bestColor">
+              <!--  Show the best color -->
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2>Visualisation</h2>
+    <div id="results">
+      <!--  results are loaded here -->
+    </div>
+  </main>
+</body>
+
+<script src="script.js"></script>
+
+</html>
