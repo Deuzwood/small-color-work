@@ -128,10 +128,10 @@ getColFromColorStep = () => {
 }
 
 fetchData = () => {
-  const fileName = 'files/luminance_' + document.getElementById("colorType").value + '_' + getColorStep() + '.csv';
+  const fileName = './src/files/luminance_' + document.getElementById("colorType").value + '_' + getColorStep() + '.csv';
   container.className = "col-" + getColFromColorStep();
   container.className = "col-" + getColFromColorStep(); fetchResults(fileName);
-  fetchRapport('files/luminance_' + document.getElementById("colorType").value + '_' + getColorStep() + '.json');
+  fetchRapport('./src/files/luminance_' + document.getElementById("colorType").value + '_' + getColorStep() + '.json');
 }
 
 

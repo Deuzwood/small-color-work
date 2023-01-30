@@ -1,5 +1,5 @@
 #!/usr/bin/sh
-path="site/files"
+path="src/files"
 
 rm -rf $path
 mkdir $path
