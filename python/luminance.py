@@ -5,7 +5,7 @@ import json
 import math
 import time
 
-from utils.color_utils import relativeLuminance, color2hex, colors, colors_dic, rgb2hex
+from utils.color_utils import getAllColors, relativeLuminance, color2hex, colors, colors_dic, rgb2hex
 
 args = None
 
@@ -60,11 +60,7 @@ def testColors(backgroundColors, foregroundColors):
 
 def main(colorsToTest, increment):
     # create array of all colors
-    colors = []
-    for r in range(0, 256, increment):
-        for g in range(0, 256, increment):
-            for b in range(0, 256, increment):
-                colors.append([r, g, b])
+    colors = getAllColors()
 
     results = testColors(colors, colorsToTest)
     rapport = {}

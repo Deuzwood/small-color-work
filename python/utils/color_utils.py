@@ -24,15 +24,16 @@ base_colors = ["white", "black"]
 primary_colors = ["red", "green", "blue"]
 secondary_colors = ["yellow", "magenta", "cyan"]
 tertiary_colors = ["orange", "purple", "brown"]
-all_colors = primary_colors + secondary_colors + tertiary_colors
+extended_colors = primary_colors + secondary_colors + tertiary_colors
 
-colors = {
-    "base": base_colors,
-    "primary":  primary_colors,
-    "secondary": secondary_colors,
-    "tertiary": tertiary_colors,
-    "all": all_colors
-}
+
+def getAllColors():
+    colors = []
+    for r in range(0, 256):
+        for g in range(0, 256):
+            for b in range(0, 256):
+                colors.append([r, g, b])
+    return colors
 
 
 def rgb2hex(rgb):
@@ -53,3 +54,13 @@ def luminanceFromBit(_8bit):
 def relativeLuminance(R8bit, G8bit, B8bit):
     return 0.2126 * luminanceFromBit(R8bit) + 0.7152 * \
         luminanceFromBit(G8bit) + 0.0722 * luminanceFromBit(B8bit)
+
+
+colors = {
+    "base": base_colors,
+    "primary":  primary_colors,
+    "secondary": secondary_colors,
+    "tertiary": tertiary_colors,
+    "extended": extended_colors,
+    "all": getAllColors()
+}
