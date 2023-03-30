@@ -1,7 +1,9 @@
 import argparse
 import csv
+import datetime
 import json
 import math
+import time
 
 from utils.color_utils import relativeLuminance, color2hex, colors, colors_dic, rgb2hex
 
@@ -159,4 +161,10 @@ if __name__ == "__main__":
         print("Running with colors " + str(args.colors) + " and step " +
               str(args.step), "will output to " + str(args.output))
 
+    timer = time.time()
+
     main(args.colors, args.step)
+
+    timer = time.time() - timer
+    timer = str(datetime.timedelta(seconds=timer))
+    print("Execution time: " + timer + " (hh:mm:ss)")
